@@ -21,6 +21,7 @@ public class Palindrome {
     }
 
     /*
+    Ex. 8.9 Think Java
     *Palindrome checking
      */
 
@@ -40,7 +41,9 @@ public class Palindrome {
 
         }
 
-
+/*
+* Ex. 8.10 from Think Java
+* Abecederian check*/
 
     public static boolean isAbecedarian(String str){
         String tempSubstr;
