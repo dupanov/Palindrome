@@ -1,5 +1,5 @@
 /**
- * Created by Вадик on 30.10.2015.
+ * Created by Р’Р°РґРёРє on 30.10.2015.
  */
 public class Palindrome {
     public static char first (String str){
@@ -7,7 +7,7 @@ public class Palindrome {
     }
 
     public static char last (String str){
-        return str.charAt(str.length()-1);
+        return str.charAt(str.length() - 1);
     }
 
     public static String middle(String str){
@@ -15,19 +15,45 @@ public class Palindrome {
     }
 
     public static void main(String args[]){
-        System.out.println(middle("as"));
-        System.out.println(isPalidrome("арозвупаланалапуазора"));
+
+    //    System.out.println(isPalidrome("afffa"));
+        System.out.println(isAbecedarian("abc"));
     }
 
-    public static boolean isPalidrome(String str){
-        if(middle(str).length()==1 || middle(str).length()==0){
+    /*
+    *Palindrome checking
+     */
+
+    public static boolean isPalidrome(String str) {
+        if (str.length() == 1 || str.length() == 0) {
             return true;
-        } else if(Palindrome.middle(str).length()==2){
-            if(middle(str).charAt(0)==middle(str).charAt(1)){
-                return true;
-            } else return false;
-        } else if(first(str) == last(str)) {
-            return(isPalidrome(middle(str)));
-        } else {return false;}
+        }
+
+        if ((str.length() == 2) && (first(str) == last(str) )) {
+            return true;
+        }
+
+        if (first(str) == last(str)) {
+                return isPalidrome(middle(str));
+            }
+         return false;
+
+        }
+
+
+
+    public static boolean isAbecedarian(String str){
+        String tempSubstr;
+
+        if(str.length()>1) {
+            tempSubstr=str.substring(1,str.length()-1);
+        } else return true;
+
+        if(str.charAt(0)<str.charAt(1)){
+            return isAbecedarian(tempSubstr);
+        }
+        return false;
+
     }
+
 }
