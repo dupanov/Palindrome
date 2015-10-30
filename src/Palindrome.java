@@ -20,10 +20,10 @@ public class Palindrome {
     }
 
     public static boolean isPalidrome(String str){
-        if(Palindrome.middle(str).length()==1){
+        if(middle(str).length()==1 || middle(str).length()==0){
             return true;
         } else if(Palindrome.middle(str).length()==2){
-            if(Palindrome.middle(str).charAt(0)==Palindrome.middle(str).charAt(1)){
+            if(middle(str).charAt(0)==middle(str).charAt(1)){
                 return true;
             } else return false;
         } else if(first(str) == last(str)) {
