@@ -18,6 +18,7 @@ public class Palindrome {
 
     public static void main(String args[]){
 
+    //Testing and data i/o
     //    System.out.println(isPalidrome("afffa"));
     //    System.out.println(isAbecedarian("abc"));
         Scanner sc = new Scanner(System.in);
