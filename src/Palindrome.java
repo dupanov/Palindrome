@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created by Вадик on 30.10.2015.
  */
@@ -17,7 +19,12 @@ public class Palindrome {
     public static void main(String args[]){
 
     //    System.out.println(isPalidrome("afffa"));
-        System.out.println(isAbecedarian("abc"));
+    //    System.out.println(isAbecedarian("abc"));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input key" );
+        int i = sc.nextInt();
+        System.out.println(encode("xyz XYZ", i));
+
     }
 
     /*
@@ -58,5 +65,29 @@ public class Palindrome {
         return false;
 
     }
+
+    /*
+    * Ex. 8.12 word encoding method
+    * */
+
+    public static String encode(String str, int key) {
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (96 < str.charAt(i) && str.charAt(i) < 123  && str.charAt(i) + key > 122) {
+                result += (char) ( str.charAt(i)+key - 122 + 96);
+            } else if (64 < str.charAt(i) && str.charAt(i) < 91 && str.charAt(i) + key > 90) {
+                result += (char) ( str.charAt(i)+key - 90 + 64);
+            } else if ((str.charAt(i)<=96 || str.charAt(i) >= 123) && (str.charAt(i)<=64 || str.charAt(i) >= 91)){
+                result+=(char)str.charAt(i);
+            } else {
+                result += (char) (str.charAt(i) + key);
+            }
+            }
+        return result;
+        }
+
+
+
+
 
 }
