@@ -24,7 +24,7 @@ public class Palindrome {
         System.out.println("Input key" );
         int i = sc.nextInt();
         System.out.println(encode("xyz XYZ", i));
-
+        System.out.println(decode(encode("xyz XYZ", i),i));
     }
 
     /*
@@ -86,7 +86,24 @@ public class Palindrome {
         return result;
         }
 
-
+    /*
+    * Decode method
+    * */
+    public static String decode(String str, int key) {
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (96 < str.charAt(i) && str.charAt(i) < 123  && str.charAt(i) - key < 97) {
+                result += (char) (122 - (96 - (str.charAt(i)-key)));
+            } else if (64 < str.charAt(i) && str.charAt(i) < 91 && str.charAt(i) - key < 65) {
+                result += (char) (90 - (64 - (str.charAt(i)-key)));
+            } else if ((str.charAt(i)<=96 || str.charAt(i) >= 123) && (str.charAt(i)<=64 || str.charAt(i) >= 91)){
+                result+=(char)str.charAt(i);
+            } else {
+                result += (char) (str.charAt(i) - key);
+            }
+        }
+        return result;
+    }
 
 
 
